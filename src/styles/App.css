@@ -4,15 +4,21 @@ body {
   background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* align app to the left so it sits near the fixed logo */
   align-items: flex-start;
+  padding-left: 140px; /* space for the fixed logo */
 }
 
 .dashboard {
   text-align: center;
   padding: 20px;
   width: 100%;
-  max-width: 600px;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
 }
 
 .title {
@@ -34,26 +40,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  /* make room for the fixed logo on the left */
-  padding-left: 140px;
   box-sizing: border-box;
-}
-
-.app-nav {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-.nav-btn {
-  background: rgba(255,255,255,0.14);
-  color: #fff;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background 140ms ease, transform 120ms ease, box-shadow 120ms ease;
 }
 
 .App-logo {
@@ -65,17 +52,47 @@ body {
   z-index: 60;
 }
 
-@media (max-width: 640px) {
-  .App-logo {
-    width: 64px;
-    height: 64px;
-    left: 10px;
-    top: 8px;
-  }
+.app-title {
+  margin: 0 16px;
+  font-size: 20px;
+  color: #083e77;
+}
 
-  .App-header {
-    padding-left: 88px;
-  }
+.app-nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-btn {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  border: none;
+
+.api-status {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.api-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.api-badge.present { background: linear-gradient(90deg,#34d399,#10b981); }
+.api-badge.missing { background: linear-gradient(90deg,#f97316,#fb923c); }
+
+.api-desc { color: #083e77; }
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 140ms ease, transform 120ms ease, box-shadow 120ms ease;
 }
 
 .nav-btn:hover {
@@ -96,7 +113,24 @@ body {
 
 .app-main {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+}
+
+@media (max-width: 640px) {
+  .App-logo {
+    width: 64px;
+    height: 64px;
+    left: 10px;
+    top: 8px;
+  }
+
+  .App-header {
+    padding-left: 88px;
+  }
 }

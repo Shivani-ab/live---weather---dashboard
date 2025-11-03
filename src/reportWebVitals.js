@@ -1,13 +1,15 @@
-const reportWebVitals = onPerfEntry => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+const reportWebVitals = (onPerfEntry) => {
+  if (onPerfEntry && typeof onPerfEntry === "function") {
+    import("web-vitals").then(({ getCLS, getFID, getLCP }) => {
       getCLS(onPerfEntry);
       getFID(onPerfEntry);
-      getFCP(onPerfEntry);
       getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
     });
   }
 };
 
+// Example usage: log vitals to console
+reportWebVitals(console.log);
+
 export default reportWebVitals;
+
